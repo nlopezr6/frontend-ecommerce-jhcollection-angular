@@ -1,0 +1,26 @@
+<form [formGroup]="CategoryForm" 
+(ngSubmit)="onSubmit ()">
+
+    <div class="field">
+        <label for="categoria">Nombre de la categoria</label>
+        <input type="text"  formControlName= "categoria" id="name-category">
+        <div class="error">
+            <div *ngIf="CategoryForm.get ('categoria')?.invalid &&(CategoryForm.get('categoria')?.dirty ||CategoryForm.get ('categoria')?.touched)">
+            <small *ngIf="CategoryForm.get ('categoria')?.errors?.['required']">
+                El campo 'nombre del producto' es obligatorio
+            </small>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label for="">Descripción</label>
+        <textarea name="descripcion" formControlName="descripcion" id= "descripcion"></textarea>
+    </div>
+    
+    
+   <div class="field">
+    <button type="submit" [disabled]="CategoryForm.invalid" >Actualizar categoria</button>
+   </div>
+</form>
+
+

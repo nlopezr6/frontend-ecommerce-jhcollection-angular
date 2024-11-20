@@ -1,0 +1,63 @@
+<main class="main">
+
+  <ul class="product-list">
+    @for (item of products; track $index) {
+      <li class="product-list-item">
+        <div class="card" [routerLink]="['../product','detail', item.category]">
+          <img [src]="item.urlImage" [alt]="item.name" class="product-image" style="width: 100%">
+          <div class="product-info">
+            <h4> {{item.name}}</h4>
+            <p class="price"> {{item.price}} </p>
+            <p class="text-quantiy">Cantidad</p>
+            <div class="extra">
+                <p class="quantity"> {{item.quantity}} </p>
+                <p class="category"> {{item.category}} </p>
+                <span class="btn btn-add-cart" (click)="addToCart(item)">
+                    <i class="fa-solid fa-cart-arrow-down"></i>
+                </span>
+            </div>
+            
+        </div>
+        </div>
+      </li>
+    }
+  </ul>
+    <!-- <section class="nuestras-sabanas">
+      <div class="text-box-sab">
+        <div class="Infography-sab">
+          <article class="title-sab">Camisetas JHC</article>
+          <p class="content content-1-camisetas">Camisetas de alta calidad y estilo 100% en algodón</p>
+          <div class="content-2-camisetas">
+            <p class="content-camisetas">Nuestras camisetas</p>
+            <button class="content-3-sab">ver más...</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <!-- Sección para los botones de categorías -->
+    <section>
+      <div class="filtrado-categorias">
+        <button (click)="filtrarPorCategoria('camisetas')">Camisetas</button>
+        <button (click)="filtrarPorCategoria('buzos y chaqietas')">Buzos y chaquetas</button>
+        <button (click)="filtrarPorCategoria('inferior')">Inferior</button>
+        <button (click)="filtrarPorCategoria('accesorios')">Accesorios</button>
+      </div>
+    </section>
+  
+    <!-- Sección para los productos -->
+    <section>
+      <div class="content-4-camisetas">
+        <div class="titulo-camisetas">
+          Camisetas 100% algodón
+        </div>
+      </div>
+  
+      <div class="cards">
+        <!-- Aquí se recorrerán los productos filtrados -->
+        <div *ngFor="let product of filteredProducts">
+          <app-home [productValue]="product"></app-home>
+        </div>
+      </div>
+    </section>
+  </main>

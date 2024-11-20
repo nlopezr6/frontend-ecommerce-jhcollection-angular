@@ -1,0 +1,152 @@
+* {
+    color: blanchedalmond;
+}
+/** Slides*/
+.carousel {
+    position: relative;
+    max-width: 100%; 
+    overflow: hidden;
+    z-index: 900;
+}
+
+.carousel-wrapper {
+    display: flex;
+    transition: transform 1s ease;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    height: 30rem; 
+    
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border: 0.8rem solid transparent; 
+    cursor: pointer;
+}
+
+.carousel-prev {
+    left: 0;
+    border-right: 2rem solid white;
+}
+.carousel-prev:hover{
+    left: 0;
+    border-right: 2rem solid #29166F;
+    transition: 1s;
+}
+.carousel-next {
+    right: 0;
+    border-left: 2rem solid white ;
+}
+.carousel-next:hover{
+    right: 0;
+    border-left: 2rem solid #29166F;
+    transition: 1s;
+}
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border: 1px solid white;
+
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
+}
+
+ul.product-list {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+    padding: 0;
+    margin: 0;
+}
+
+img.product-image {
+    max-height: 20rem;
+    height: 20rem;
+}
+
+ul.product-list {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    padding: 4rem 0;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin: 1rem;
+
+
+
+    * {
+        margin: 0;
+    }
+
+    .price {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: orange;
+    }
+
+    p.text-quantiy {
+        display: flex;
+    }
+
+    .extra {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    
+
+    .btn-add-cart {
+        
+        padding: .4rem;
+        background: orange;
+        border-radius: .3rem;
+        padding-right: 1rem;
+    }
+
+    i.fa-solid.fa-cart-arrow-down {
+        color: black;
+        font-size: 1.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .product-info{
+        padding: 0.4rem;
+        background: orange;
+        border-radius: 0.3rem;
+        padding-left: 0rem;
+    }
+}

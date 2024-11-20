@@ -1,0 +1,35 @@
+<table border="1">
+<thead>
+    
+    <tr style="color: aliceblue;">
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Categoria</th>
+        <th>Coleccion</th>
+        <th>Destacado</th>
+        <th>&nbsp;</th>
+    </tr>
+</thead>
+<tbody>
+    @for (item of products; track $index) {
+        <tr style="color: aliceblue;">
+            <td> {{item.name}} </td>
+            <td> {{item.price}} </td>
+            <td> {{item.quantity}} </td>
+            <td> {{item.category.categoria}} </td>
+            <td> {{item.line.coleccion}} </td>
+            <td>{{item.prominent}}</td>
+            <td class="edit">
+                <a class="editar" (click)="editar (item._id)">
+                    <img src="images/pencil.png" alt="">
+                </a>
+                <a class="eliminar" (click)="eliminar (item._id)">
+                    <img src="images/trash.png" alt="">
+                </a>
+            </td>
+        </tr>
+
+    }
+</tbody>
+</table>

@@ -1,0 +1,62 @@
+
+<!-- 
+        <pre>
+            {{product|json}}
+        </pre> -->
+        
+            <div class="card">
+                <!-- <img class="product-image" alt=""> -->
+                <div class="image-product">
+                    <img class="product-detail-image" [src]="product?.urlImage">
+                </div>
+                <div class="product-details">
+                    
+                    <h1 class="tittle-product"> {{ product?.name }} </h1>
+                    <p class="price"> {{product?.price | currency}} </p>
+                    <div class="sizes">
+                        <h3 class="sizes-available">TALLAS DISPONIBLES</h3>
+                        <!-- <select value="tallas">
+                            <option value="s">S</option>
+                            <option value="m">M</option>
+                            <option value="l">L</option>
+                        </select> -->
+                        <label for="">S
+                            <input type="radio" name="talla" value="s">
+                        </label>
+                        <label for="">M
+                            <input type="radio" name="talla" value="m">
+                        </label>
+                        <label for="">L
+                            <input type="radio" name="talla" value="l">
+                        </label>
+                        
+                        
+                    </div>
+                    <div class="quantity">
+                        <h3> Cantidad </h3>
+                        <h3> {{ product?.quantity }} </h3>
+                    </div>
+                        <!-- <div class="button-selector">
+                            {{order}}
+                            <button (click)="removeOneItem(product._id)" class="mas-menos">-</button>
+                            <input class="order" type="text" [value]="order">
+                            <button (click)="addOneItem(product._id)" class="mas-menos">+</button>
+                        </div> -->
+                    <span class="btn-add-cart" (click)="addToCart(product)">
+                        <i class="fa-solid fa-cart-arrow-down"></i>
+                    </span> 
+                   <!-- <button class="btn-buy-now" (click)="openCart()">Comprar ahora
+
+                    </button>
+                    <span class="btn-add-cart" (click)="openCart()">
+                        
+                    </span>  -->
+                </div>
+            </div>
+            
+        
+        
+            
+
+
+

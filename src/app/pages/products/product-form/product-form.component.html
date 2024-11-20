@@ -1,0 +1,106 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit ()">
+
+    <div class="field">
+        <label for="name-product">Nombre del producto</label>
+        <input type="text" formControlName="name" id="name-product">
+        <div class="error">
+            <div
+                *ngIf="productForm.get ('name')?.invalid &&(productForm.get('name')?.dirty || productForm.get ('name')?.touched)">
+                <small *ngIf="productForm.get ('name')?.errors?.['required']">
+                    El campo 'nombre del producto' es obligatorio
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label for="">Descripción</label>
+        <textarea name="description" formControlName="description" id="description"></textarea>
+    </div>
+    <div class="field">
+        <label for="price">Precio</label>
+        <input type="number" min="0" formControlName="price" id="price">
+        <div class="error">
+            <div
+                *ngIf="productForm.get ('price')?.invalid &&(productForm.get('price')?.dirty || productForm.get ('price')?.touched)">
+
+                <small *ngIf="productForm.get ('price')?.errors?.['required']">
+                    El valor no puede ser negativo
+                </small>
+
+                <small *ngIf="productForm.get ('price')?.errors?.['min']">
+                    El valor no puede ser negativo
+                </small>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label for="quantity">Cantidad</label>
+        <input type="number" formControlName='quantity' id="quantity">
+        <div class="error">
+            <div
+                *ngIf="productForm.get ('quantity')?.invalid &&(productForm.get('quantity')?.dirty || productForm.get ('quantity')?.touched)">
+
+                <small *ngIf="productForm.get ('quantity')?.errors?.['required']">
+                    El valor no puede ser negativo
+                </small>
+
+                <small *ngIf="productForm.get ('quantity')?.errors?.['min']">
+                    El valor no puede ser menor a 0
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="field">
+        <label for="category">Categoría</label>
+        <select formControlName="category" id="category">
+
+            @for (category of categories; track $index) {
+            <option [value]="category._id"> {{category.categoria}} </option>
+            }
+
+
+        </select>
+        <div class="error">
+            <div
+                *ngIf="productForm.get ('category')?.invalid &&(productForm.get('category')?.dirty || productForm.get ('category')?.touched)">
+
+                <small *ngIf="productForm.get ('category')?.errors?.['required']">
+                    El valor no puede ser negativo
+                </small>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="collection">Coleccion</label>
+        <select formControlName="line" id="collection">
+
+            @for (collection of collections; track $index) {
+            <option [value]="collection._id"> {{collection.coleccion}} </option>
+            }
+
+
+        </select>
+        <div class="error">
+            <div
+                *ngIf="productForm.get ('line')?.invalid &&(productForm.get('line')?.dirty || productForm.get ('line')?.touched)">
+
+                <small *ngIf="productForm.get ('line')?.errors?.['required']">
+                    El valor no puede ser negativo
+                </small>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="image">Imágen del producto</label>
+        <input type="text" formControlName="urlImage" id="image" />
+
+    </div>
+    <div class="field">
+        <button type="submit" [disabled]="productForm.invalid">Registrar producto </button>
+    </div>
+</form>

@@ -1,0 +1,68 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<header class="header">
+    <div class="container header">
+        <a routerLink="/home"> <img src="images/logo.png" alt="logo" class="logo"></a>
+        <nav>
+            <ul>
+                
+                <li>
+                    <a routerLink="product/catalogo">Catálogo</a>
+                    <ul class="dropdown-menu">
+                        <li><a (click)="filtrarPorCategoria('camisetas')" [routerLink]="['camisetas']" routerLinkActive="Active">Camisetas</a></li>
+                        <li><a (click)="filtrarPorCategoria('buzos')" [routerLink]="['buzos']" routerLinkActive="Active">Buzos y chaquetas</a></li>
+                        <li><a (click)="filtrarPorCategoria('inferior')" [routerLink]="['inferior']" routerLinkActive="Active">Inferior</a></li>
+                        <li><a (click)="filtrarPorCategoria('accesorios')" [routerLink]="['accesorios']" routerLinkActive="Active">Accesorios</a></li>
+                    </ul>
+                </li>
+                @if(userData) {
+                    <li>
+                        <a routerLink="product/collection">Colección</a>
+                        <ul class="dropdown-menu">
+                            <li><a routerLink="collection/list">Lista de coleccion</a></li>
+                            <li><a routerLink="collection/form">Formulario de coleccion</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a routerLink="product/product">Producto</a>
+                        <ul class="dropdown-menu">
+                            <li><a routerLink="product/list">Lista de productos</a></li>
+                            <li><a routerLink="product/form">Formulario de producto</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a routerLink="product/category">Categoría</a>
+                        <ul class="dropdown-menu">
+                            <li><a routerLink="category/list">Lista de categoria</a></li>
+                            <li><a routerLink="category/form">Formulario de categoria</a></li>
+                        </ul>
+                    </li>
+                }
+                @if(!userData) {
+                    <li class="menu-item">
+                        <a routerLink="/register">Registrarse </a>
+                    </li>
+                    <li class="menu-item">
+                        <a routerLink="/login">Acceder </a>
+                    </li>
+                }
+                @if(userData) {
+                    <li class="menu-item">
+                        <a (click)="logout ()">Cerrar sesión </a>
+                    </li>
+                }
+            </ul>
+        </nav>
+        @if (userData) {
+            <p>Bienvenido {{userData.name}}</p>
+        }
+        <a routerLink="/checkout">
+            <i class="fa-solid fa-cart-shopping"></i>
+        </a>
+        <i class="fa-solid fa-bars"></i>
+        <!-- <pre>{{userData |json }}</pre> -->
+    </div>
+</header>

@@ -1,0 +1,17 @@
+<section class="slider-wrapper">
+  <button #prevButton class="slide-arrow" id="slide-arrow-prev">
+    &#8249;
+  </button>
+  <button #nextButton class="slide-arrow" id="slide-arrow-next">
+    &#8250;
+  </button>
+
+  <ul #slidesContainer class="slides-container" id="slides-container">
+    @for (item of prominentProducts; track $index) {
+    <li #slide class="slide">
+      <img class="img img-1" [src]="item.urlImage" [alt]="item.name">
+    </li>
+    }
+
+  </ul>
+</section>

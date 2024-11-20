@@ -1,0 +1,56 @@
+<div class="container">
+    <!-- Cart Items Section -->
+    <div class="cart-items">
+        <!-- Verifica si hay productos en el carrito -->
+        @if( cartProducts.length > 0 ) {
+            @for (item of cartProducts; track $index) {
+                <!-- Item -->
+                <div class="cart-item">
+                    <a [routerLink]="['/page-product-detail', item._id]">
+                        <img [src]="item.info.urlImage" [alt]="item.info.name">
+                    </a>
+                    <div class="item-info">
+                        <h4>{{item.info.name}}</h4>
+                    </div>
+                    <p class="descripcion">{{item.info.description}}</p>
+                    <div class="price">{{item.info.price | currency}}</div>
+                    
+                    <div class="quantity">
+                        <div class="button-selector">
+                            <button (click)="substractOneItem(item.info._id)">-</button>
+                        <input type="text" [value]="item.order" readonly>
+                        <button (click)="addOneItem(item.info._id)">+</button>
+                        </div>
+                        
+                    </div>
+                    <div class="price">{{ item.total | currency }}</div>
+                    <!-- Botón para eliminar el producto -->
+                    <button class="remove-btn" (click)="removeItem(item.info._id)">Eliminar</button>
+                </div>
+            }
+        }
+        @else{
+            <div class="shopping-cart">
+                <p>No hay productos en el carrito</p>
+            </div>
+        }
+    </div>
+    
+    <!-- Cart Totals Section -->
+    <div class="cart-totals">
+        <h3>TOTAL</h3>
+        <div class="totals-row">
+            <span>Subtotal</span>
+            <span>{{ total | currency }}</span>
+        </div>
+        <div class="totals-row">
+            <span>Entrega Estimada</span>
+            <span>1 - 8 dias hábiles </span>
+        </div>
+        <div class="totals-row total">
+            <span>Total</span>
+            <span>{{ total | currency }}</span>
+        </div>
+        <button class="checkout-btn" [routerLink]="['/purchase-completed']">Continua para pago</button>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<!-- <pre>{{colecciones|json}}</pre> -->
+
+<table border="1">
+    <thead>
+        
+        <tr style="color: aliceblue;">
+            <th>Coleccion</th>
+            <th>Descripcion</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of colecciones; track $index) {
+            <tr style="color: aliceblue;">
+                <td> {{item.coleccion}} </td>
+                <td> {{item.descripcion}} </td>
+               
+                <td>
+                   
+                    <a class="editar" (click)="editar (item._id)">
+                        <img src="images/pencil.png" alt="">
+                    </a>
+                    <a class="eliminar" (click)="eliminar (item._id)">
+                        <img src="images/trash.png" alt="">
+                    </a>
+                </td>
+            </tr>
+    
+        }
+    </tbody>
+    </table>
+    

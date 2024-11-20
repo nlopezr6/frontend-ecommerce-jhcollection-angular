@@ -1,0 +1,77 @@
+body {
+    background-color: #121212; /* Fondo oscuro */
+    color: #ffffff; /* Texto blanco para contraste */
+    font-family: 'Roboto', sans-serif;
+}
+
+form  {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: black;
+        border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        border: solid 1px white;
+}
+
+.field {
+    display: flex; /* Flexbox para los campos */
+    flex-direction: column; /* Direccionar los elementos verticalmente */
+}
+
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ffcc00;
+    font-family: 'Tajawal';
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    padding: 12px; /* Espacio interno */
+    border: 1px solid #555; /* Borde gris oscuro */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: antiquewhite;
+    color: black; /* Texto blanco */
+    font-size: 14px; /* Tamaño de texto más pequeño */
+    transition: border-color 0.3s, background-color 0.3s; /* Efecto al enfocar */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+select:focus {
+    border-color: #ffcc00; /* Borde amarillo al enfocar */
+    background-color: whitesmoke; /* Fondo más claro al enfocar */
+}
+
+.error {
+    color: #ff4444; /* Color rojo para mensajes de error */
+    font-size: 12px; /* Tamaño de texto de error más pequeño */
+}
+
+button {
+    background-color: #007bff; /* Botón azul */
+    color: white;
+    border: none;
+    padding: 10px 20px; /* Espacio interno del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor */
+    font-size: 16px; /* Tamaño de texto */
+    transition: background-color 0.3s; /* Efecto al pasar el mouse */
+    align-self: center; /* Centrar el botón */
+}
+
+button[_ngcontent-ng-c3417631063]:disabled {
+    background-color: #00beff;
+    cursor: not-allowed;
+}
+button:hover:not(:disabled) {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}

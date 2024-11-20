@@ -1,0 +1,25 @@
+<form [formGroup]="collectionForm" 
+(ngSubmit)="onSubmit ()">
+
+    <div class="field">
+        <label for="name-collection">Nombre de la coleccion</label>
+        <input type="text"  formControlName= "coleccion" id="name-collection">
+        <div class="error">
+            <div *ngIf="collectionForm.get ('coleccion')?.invalid &&(collectionForm.get('coleccion')?.dirty || collectionForm.get ('coleccion')?.touched)">
+            <small *ngIf="collectionForm.get ('coleccion')?.errors?.['required']">
+                El campo 'nombre de la coleccion es obligatoria'
+            </small>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label for="descripcion">Descripción</label>
+        <textarea name="descripcion" formControlName="descripcion" id= "descripcion"></textarea>
+    </div>
+
+
+    
+   <div class="field">
+    <button type="submit" [disabled]="collectionForm.invalid" >Registrar coleccion </button>
+   </div>
+</form>
